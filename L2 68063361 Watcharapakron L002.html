@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        img {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    opacity: 0.5;
+    transition: transform 0.8s, opacity 0.5s;
+    }
+    img:hover {
+        opacity: 1;
+        transform: scale(1.05);
+        border: 1px solid white;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a href="#" class="navbar-brand">Watcharapakron P.</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div id="navbar1" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">หน้าแรก</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">บริการ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">เกี่ยวกับเรา</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">ติดต่อเรา</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <section>
+            <h1>The Best</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, assumenda voluptas. Blanditiis dolore laboriosam ducimus ipsa, magni quisquam aliquid in, dicta voluptate rem laborum, quam repellendus. Ratione, necessitatibus quidem? Reiciendis!</p>
+            <!--image-->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <img src="gallery/roland.webp" alt="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="gallery/gebura.webp" alt="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="gallery/binah.jpg" alt="img-fluid">
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
