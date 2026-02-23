@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>แบบฟอร์มบันทึกข้อมูลประชาชน</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 offset-lg-3">
+        <h1 class="mb-4">แบบฟอร์มบันทึกข้อมูลประชาชน</h1>
+        
+        <form>
+            <!-- Name -->
+            <div class="mb-3">
+                <label for="name" class="form-label">ชื่อประชากร</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="กรุณาป้อนชื่อประชากร" required>
+            </div>
+            
+            <!-- Age -->
+            <div class="mb-3">
+                <label for="age" class="form-label">อายุ</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="กรุณาป้อนอายุ" required>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="reset" class="btn btn-secondary">ล้างข้อมูล</button>
+                <button type="submit" class="btn btn-primary">ลงทะเบียน</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
