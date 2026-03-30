@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>แบบฟอร์มบันทึกข้อมูลประชาชน</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 offset-lg-3">
+        <h1 class="mb-4">แบบฟอร์มบันทึกข้อมูลประชาชน</h1>
+        
+        <form method="post" action="{% if person %}{% url 'edit' person.id %}{% else %}{% url 'form' %}{% endif %}">
+            {% csrf_token %}
+            <!-- Name -->
+            <div class="mb-3">
+                <label for="name" class="form-label">ชื่อประชากร</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="กรุณาป้อนชื่อประชากร" value="{% if person %}{{ person.name }}{% endif %}" required>
+            </div>
+            
+            <!-- Age -->
+            <div class="mb-3">
+                <label for="age" class="form-label">อายุ</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="กรุณาป้อนอายุ" value="{% if person %}{{ person.age }}{% endif %}" required>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="reset" class="btn btn-orange">ล้างข้อมูล</button>
+                <button type="submit" class="btn btn-pink">{% if person %}บันทึกการแก้ไข{% else %}ลงทะเบียน{% endif %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .btn-pink {
+        background-color: #FF69B4;
+        color: white;
+        border: none;
+    }
+
+    .btn-pink:hover {
+        background-color: #FF1493;
+        color: white;
+    }
+
+    .btn-orange {
+        background-color: #FF8C00;
+        color: white;
+        border: none;
+    }
+
+    .btn-orange:hover {
+        background-color: #FF7F00;
+        color: white;
+    }
+</style>
+
+{% endblock %}

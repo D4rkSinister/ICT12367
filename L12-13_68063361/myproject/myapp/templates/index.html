@@ -1,0 +1,171 @@
+{% extends "base.html"%}
+
+{% block title %}
+<title>หน้าแรกของเว็ปไซต์</title>
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">ICT12367 SPU</h1>
+
+<!-- Search Form -->
+<div class="mb-3">
+    <form method="get" action="{% url 'index' %}" class="d-flex gap-2">
+        <input type="text" name="q" class="form-control" placeholder="ค้นหาตามชื่อหรืออายุ" value="{{ query }}">
+        <button type="submit" class="btn btn-pink">ค้นหา</button>
+        {% if query %}
+        <a href="{% url 'index' %}" class="btn btn-secondary">ล้างการค้นหา</a>
+        {% endif %}
+    </form>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Register Date</th>
+            <th scope="col" style="text-align: center;">Edit</th>
+            <th scope="col" style="text-align: center;">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in all_persons %}
+        <tr>
+            <th scope="row">1</th> 
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.date }}</td>
+            <td style="text-align: center;"><a href="{% url 'edit' person.id %}" class="btn btn-pink">Edit</a></td>
+            <td style="text-align: center;"><a href="{% url 'delete' person.id %}" class="btn btn-orange">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .btn-pink {
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+        }
+
+        .btn-pink:hover {
+            background-color: #FF1493;
+            color: white;
+        }
+
+        .btn-orange {
+            background-color: #FF8C00;
+            color: white;
+            border: none;
+        }
+
+        .btn-orange:hover {
+            background-color: #FF7F00;
+            color: white;
+        }
+
+        tbody tr {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        tbody tr:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</div>
+
+<!-- สินค้า (Products) Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card h-100">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://i.pinimg.com/736x/16/19/eb/1619eb30200429396473e96fe658338a.jpg" class="img-fluid rounded-start" alt="สินค้า" style="height: 100%; object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">สินค้า</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- บริการ (Services) Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card h-100">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://preview.redd.it/tsuki-is-round-v0-sxxh6rh1lkye1.png?width=640&crop=smart&auto=webp&s=43e35541396382ab27494a4f9732b9cc760c9d0d" class="img-fluid rounded-start" alt="บริการ" style="height: 100%; object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">บริการ</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- เกี่ยวกับเรา (About Us) Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card h-100">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://pbs.twimg.com/media/GBQ3Z40XcAACbos.jpg" class="img-fluid rounded-start" alt="เกี่ยวกับเรา" style="height: 100%; object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">เกี่ยวกับเรา</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Google Map Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">ที่ตั้งของเรา</h5>
+                <div class="mb-3" style="overflow: hidden; border-radius: 0.25rem;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.733038985041!2d100.5830372750921!3d13.855056736547654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29d3b2deb49ff%3A0xd2ed4165c39645cc!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4Lio4Lij4Li14Lib4LiX4Li44Lih!5e0!3m2!1sth!2sth!4v1771828444674!5m2!1sth!2sth" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

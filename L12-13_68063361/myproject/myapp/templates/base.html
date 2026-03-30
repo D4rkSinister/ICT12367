@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock %}
+    {% block extra_css %}{% endblock %}
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .navbar-custom { background-color: #1e1e2f; }
+        .navbar-custom .navbar-brand { color: #fff; font-weight: 700; }
+        .navbar-custom .nav-link { color: rgba(255,255,255,0.9); }
+        .navbar-custom .nav-link:hover { color: #4da6ff; }
+
+        .banner {
+            height: 300px;
+            background-image: url("{% block banner_image %}https://i.pinimg.com/736x/52/6e/c6/526ec61ca44e84c55d4df047965c734a.jpg{% endblock %}");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .banner h1 { margin: 0; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">วัชรปกรณ์_68063361</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">เกี่ยวกับเรา</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/form">แบบฟอร์ม</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="banner">
+        <div class="banner-overlay">
+            <div>
+                {% block banner_title %}
+                <h1 class="display-5"></h1>
+                {% endblock %}
+
+                {% block banner_subtext %}
+                <p class="lead">วัชรปกรณ์_68063361</p>
+                {% endblock %}
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white py-3 mt-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-2 mb-md-0">
+                <strong>วัชรปกรณ์_68063361</strong>
+                <small class="d-block">&copy; {{ now|date:"Y" }}</small>
+            </div>
+            <div>
+                <a href="/" class="text-white text-decoration-none me-3">หน้าหลัก</a>
+                <a href="/about" class="text-white text-decoration-none me-3">เกี่ยวกับเรา</a>
+                <a href="/form" class="text-white text-decoration-none">แบบฟอร์ม</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
